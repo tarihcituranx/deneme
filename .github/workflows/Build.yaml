@@ -21,7 +21,7 @@ jobs:
           go-version: '1.21'
 
       - name: v2dat Aracını Yükle (Orijinal Kaynak)
-        run: go install github.com/sxyzs/v2dat/cmd/v2dat@latest
+        run: go install github.com/urlesistiana/v2dat/cmd/v2dat@latest
 
       - name: Base geosite.dat İndir (Loyalsoldier)
         run: wget -q -O geosite.dat https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat
@@ -45,5 +45,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add geosite.dat
-          git diff --staged --quiet || git commit -m "chore: geosite.dat sxyzs/v2dat ile yenilendi"
+          git diff --staged --quiet || git commit -m "chore: geosite.dat urlesistiana/v2dat ile yenilendi"
           git push
