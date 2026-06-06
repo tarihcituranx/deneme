@@ -1,0 +1,100 @@
+# ============================================================
+# Türkiye Geosite Domain Listesi
+# Düzenlemek için sadece bu dosyayı değiştir,
+# geosite.dat otomatik olarak yeniden üretilir.
+#
+# Format:
+#   domain.com          → domain ve tüm subdomainler
+#   full:domain.com     → sadece tam eşleşme
+#   regexp:\.pattern$   → regex
+# ============================================================
+
+# .tr TLD — com.tr, gov.tr, edu.tr, net.tr vb. tümünü kapsar
+regexp:\.tr$
+
+# İstanbul şehir TLD
+regexp:\.istanbul$
+regexp:\.ist$
+
+# ---- E-Ticaret ----
+trendyol.com
+hepsiburada.com
+sahibinden.com
+letgo.com
+dolap.com
+ciceksepeti.com
+getir.com
+yemeksepeti.com
+n11.com
+gittigidiyor.com
+akakce.com
+cimri.com
+
+# ---- Moda / Giyim ----
+trendyolmilla.com
+morhipo.com
+lcwaikiki.com
+koton.com
+mavi.com
+vakko.com
+beymen.com
+
+# ---- Bankacılık / Finans ----
+denizbank.com
+qnbfinansbank.com
+papara.com
+ininal.com
+enpara.com
+
+# ---- Ödeme / Fintech ----
+iyzico.com
+craftgate.io
+paytr.com
+ticimax.com
+
+# ---- Telekom ----
+turk.net
+
+# ---- Haber / Medya ----
+haberturk.com
+cnnturk.com
+bianet.org
+bloomberght.com
+ekonomim.com
+dunya.com
+
+# ---- Streaming ----
+blutv.com
+tabii.com
+gain.tv
+exxen.com
+puhutv.com
+tod.tv
+
+# ---- Havayolları / Ulaşım ----
+thy.com
+turkishairlines.com
+anadolujet.com
+pegasusairlines.com
+sunexpress.com
+
+# ---- Teknoloji ----
+lenovotr.com
+
+# ---- Sağlık ----
+doktorsitesi.com
+doktortakvimi.com
+
+# ---- Otomotiv ----
+arabam.com
+araba.com
+
+# ---- Seyahat / Bilet ----
+enuygun.com
+obilet.com
+biletix.com
+mobilet.com
+tatilsepeti.com
+jollytur.com
+etstur.com
+turizmguncel.com
