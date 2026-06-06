@@ -13,38 +13,31 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - name: Repo'yu Çek
+        uses: actions/checkout@v6
 
       - name: Go Kurulumu
         uses: actions/setup-go@v5
         with:
-          go-version: '1.21'
+          go-version: '1.22'
+          cache: false  # repo'da go.sum olmadığı için uyarıyı bastırır
 
-      - name: v2dat Aracını Yükle (Orijinal Kaynak)
-        # Sondaki hatalı /cmd/v2dat kısmı kaldırıldı. Doğru komut budur:
-        run: go install github.com/urlesistiana/v2dat@latest
+      - name: domain-list-community Klonla
+        run: git clone --depth=1 https://github.com/v2fly/domain-list-community.git
 
-      - name: Base geosite.dat İndir (Loyalsoldier)
-        run: wget -q -O geosite.dat https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat
-
-      - name: Parçala, TR'yi Enjekte Et ve Yeniden Derle
+      - name: TR Domainlerini Enjekte Et ve Derle
         run: |
-          # 1. Loyalsoldier dosyasını unpacked klasörüne çıkart
-          ~/go/bin/v2dat unpack geosite -o ./unpacked geosite.dat
-          
-          # 2. Senin kendi tr-domains.txt dosyanı, orijinal tr listesinin üstüne yaz
-          cp tr-domains.txt ./unpacked/tr
-          
-          # 3. Klasörü tekrar kusursuz bir geosite.dat olarak paketle
-          ~/go/bin/v2dat pack geosite -o . -d ./unpacked
-          
-          # Temizlik
-          rm -rf ./unpacked
+          # Kendi TR listemizi orijinalin üstüne yaz
+          cp tr-domains.txt domain-list-community/data/tr
 
-      - name: geosite.dat'ı Commit Et
+          # geosite.dat olarak derle
+          cd domain-list-community
+          go run ./ --datapath=./data --outputdir=../ --outputname=geosite.dat
+
+      - name: geosite.dat Commit Et
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add geosite.dat
-          git diff --staged --quiet || git commit -m "chore: geosite.dat urlesistiana/v2dat ile yenilendi"
+          git diff --staged --quiet || git commit -m "chore: geosite.dat yenilendi"
           git push
