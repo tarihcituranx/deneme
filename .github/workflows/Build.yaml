@@ -13,7 +13,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Go Kurulumu
         uses: actions/setup-go@v5
@@ -21,7 +21,7 @@ jobs:
           go-version: '1.21'
 
       - name: v2dat Aracını Yükle
-        run: go install github.com/urlespen/v2dat/cmd/v2dat@latest
+        run: go install github.com/urlesistiana/v2dat/cmd/v2dat@latest
 
       - name: Base geosite.dat İndir (Loyalsoldier)
         run: wget -q -O geosite.dat https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat
