@@ -20,24 +20,52 @@ jobs:
         uses: actions/setup-go@v5
         with:
           go-version: '1.22'
-          cache: false  # repo'da go.sum olmadığı için uyarıyı bastırır
+          cache: false
 
       - name: domain-list-community Klonla
         run: git clone --depth=1 https://github.com/v2fly/domain-list-community.git
 
       - name: TR Domainlerini Enjekte Et ve Derle
         run: |
-          # Kendi TR listemizi orijinalin üstüne yaz
           cp tr-domains.txt domain-list-community/data/tr
-
-          # geosite.dat olarak derle
           cd domain-list-community
           go run ./ --datapath=./data --outputdir=../ --outputname=geosite.dat
 
-      - name: geosite.dat Commit Et
+      - name: README Üret
+        run: |
+          DOMAIN_COUNT=$(grep -v '^#' tr-domains.txt | grep -v '^$' | grep -v '^regexp:' | wc -l)
+          REGEXP_COUNT=$(grep '^regexp:' tr-domains.txt | wc -l)
+          TOTAL=$((DOMAIN_COUNT + REGEXP_COUNT))
+          DATE=$(date '+%d %B %Y %H:%M UTC')
+          cat > README.md << EOF
+          # 🇹🇷 Türkiye Geosite Listesi
+
+          Türk sitelerin VPN'i bypass etmesi için özel geosite veritabanı.
+
+          ## 📊 İstatistikler
+          | | |
+          |---|---|
+          | 📅 Son Güncelleme | $DATE |
+          | 🌐 Domain Sayısı | $DOMAIN_COUNT |
+          | 🔤 Regex Kuralı | $REGEXP_COUNT |
+          | 📦 Toplam Kural | $TOTAL |
+
+          ## 🚀 Kullanım
+          \`\`\`bash
+          curl -o geosite.dat https://raw.githubusercontent.com/tarihcituranx/deneme/main/geosite.dat
+          \`\`\`
+
+          ## 📋 Kategoriler
+          $(grep '^#' tr-domains.txt | grep -v '^# ==' | grep -v '^# Format' | grep -v '^# Düzenle' | grep -v '^# geo')
+
+          ## ⚙️ Nasıl Çalışır?
+          \`tr-domains.txt\` dosyasına domain ekle, workflow otomatik \`geosite.dat\` ve README'yi günceller.
+          EOF
+
+      - name: Commit Et
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add geosite.dat
-          git diff --staged --quiet || git commit -m "chore: geosite.dat yenilendi"
+          git add geosite.dat README.md
+          git diff --staged --quiet || git commit -m "chore: geosite.dat ve README yenilendi"
           git push
