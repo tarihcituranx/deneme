@@ -111,3 +111,78 @@ arabam.com
 nadirkitap.com
 kitapyurdu.com
 bilet.com
+# ---- Streaming / Eğlence ----
+exxen.com
+gain.tv
+tabii.com
+muud.com
+fizy.com
+puhutv.com
+mubi.com
+blutv.com
+
+# ---- Fintech / Ödeme ----
+papara.com
+iyzico.com
+param.com.tr
+tosla.com
+ininal.com
+paycell.com
+
+# ---- Kargo ----
+yurticikargo.com
+mngkargo.com.tr
+sendeo.com.tr
+arascargo.com
+horoz.com.tr
+bozkurt.com.tr
+
+# ---- Emlak / İlan ----
+zingat.com
+remax.com.tr
+coldwellbanker.com.tr
+century21.com.tr
+
+# ---- Sağlık ----
+medicana.com.tr
+memorial.com.tr
+acibadem.com.tr
+medipol.com.tr
+bayindir.com.tr
+
+# ---- Oyun ----
+zula.com.tr
+joygame.com
+playzone.com.tr
+pttoyun.com
+
+# ---- Yemek / Market ----
+yemeksepeti.com
+getir.com
+trendyol.com
+migros.com.tr
+a101.com.tr
+bim.com.tr
+carrefoursa.com.tr
+
+# ---- Haber / Medya ----
+bianet.org
+gazeteduvar.com.tr
+birgun.net
+cumhuriyet.com.tr
+
+# ---- Eğitim ----
+eba.gov.tr
+morpa.com.tr
+vitaminegitim.com
+kobimedia.com.tr
+
+# ---- Alışveriş ----
+hepsiburada.com
+n11.com
+sahibinden.com
+lcwaikiki.com
+koton.com
+mavi.com
+boyner.com.tr
+flo.com.tr
