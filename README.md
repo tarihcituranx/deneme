@@ -5,10 +5,10 @@ Türk sitelerin VPN'i bypass etmesi için özel geosite veritabanı.
 ## 📊 İstatistikler
 | | |
 |---|---|
-| 📅 Son Güncelleme | 11 June 2026 23:30 UTC |
-| 🌐 Domain Sayısı | 126 |
+| 📅 Son Güncelleme | 19 September 2026 10:56 UTC |
+| 🌐 Domain Sayısı | 127 |
 | 🔤 Regex Kuralı | 3 |
-| 📦 Toplam Kural | 129 |
+| 📦 Toplam Kural | 130 |
 
 ## 🚀 Kullanım
 ```bash
